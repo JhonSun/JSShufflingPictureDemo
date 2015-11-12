@@ -17,16 +17,15 @@
 @property (nonatomic, strong) NSArray *imageArray;
 @property (nonatomic, strong) NSTimer *timer;
 
+@property (nonatomic, assign) NSUInteger index;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+    
     self.pageControl.numberOfPages = self.imageArray.count;
     [self.timer fire];
 }
@@ -53,7 +52,17 @@
 
 #pragma mark - private
 - (void)jumpNext {
-    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.pageControl.currentPage + 1 inSection:0] atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
+    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.index++ inSection:0] atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
+    if (self.index == [self.collectionView numberOfItemsInSection:0]) {
+        self.index = 0;
+    }
+}
+
+- (void)chagePageControlCurrentWithScrollView:(UIScrollView *)scrollView {
+    CGFloat collectionViewWidth = self.collectionView.bounds.size.width;
+    NSUInteger page = (scrollView.contentOffset.x - collectionViewWidth / 2) / collectionViewWidth + 1;
+    page %= self.imageArray.count;
+    self.pageControl.currentPage = page;
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -65,7 +74,6 @@
     JSImageViewCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:imageViewCollectionViewCellIdentifier forIndexPath:indexPath];
     NSUInteger page = indexPath.item % self.imageArray.count;
     cell.image = [self.imageArray objectAtIndex:page];
-    self.pageControl.currentPage = page;
     return cell;
 }
 
@@ -74,12 +82,27 @@
     return CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
 }
 
-//#pragma mark - UIScrollViewDelegate
-//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-//    CGFloat collectionViewWidth = self.collectionView.bounds.size.width;
-//    int page = (scrollView.contentOffset.x - collectionViewWidth/2) / collectionViewWidth + 1;
-//    NSLog(@"page = %i", page);
-//    self.pageControl.currentPage = page;
-//}
+#pragma mark - UIScrollViewDelegate
+//开始拖动时，停止定时器
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [self.timer invalidate];
+    self.timer = nil;
+}
+
+//停止拖动时判断页数
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    [self chagePageControlCurrentWithScrollView:scrollView];
+}
+
+
+//自动滚动判断页数
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    [self chagePageControlCurrentWithScrollView:scrollView];
+}
+
+//结束拖动时，启动定时器
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    [self timer];
+}
 
 @end
