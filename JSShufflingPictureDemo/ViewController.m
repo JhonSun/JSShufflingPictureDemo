@@ -17,7 +17,7 @@
 @property (nonatomic, strong) NSArray *imageArray;
 @property (nonatomic, strong) NSTimer *timer;
 
-@property (nonatomic, assign) NSUInteger index;
+@property (nonatomic, assign) NSInteger index;
 
 @end
 
