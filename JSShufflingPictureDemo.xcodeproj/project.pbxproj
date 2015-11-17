@@ -305,6 +305,7 @@
 				1DB1B0F71BF431A300E50A67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
