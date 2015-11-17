@@ -27,7 +27,7 @@
     [super viewDidLoad];
     
     self.pageControl.numberOfPages = self.imageArray.count;
-    [self.timer fire];
+    [self addTimer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,26 +43,28 @@
     return _imageArray;
 }
 
-- (NSTimer *)timer {
-    if (!_timer) {
-        _timer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(jumpNext) userInfo:nil repeats:YES];
-    }
-    return _timer;
+#pragma mark - private
+- (void)addTimer {
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(jumpNext) userInfo:nil repeats:YES];
 }
 
-#pragma mark - private
+- (void)removeTimer {
+    [self.timer invalidate];
+    self.timer = nil;
+}
+
 - (void)jumpNext {
-    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.index++ inSection:0] atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
+    self.index++;
     if (self.index == [self.collectionView numberOfItemsInSection:0]) {
         self.index = 0;
     }
+    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.index inSection:0] atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
 }
 
 - (void)chagePageControlCurrentWithScrollView:(UIScrollView *)scrollView {
     CGFloat collectionViewWidth = self.collectionView.bounds.size.width;
-    NSUInteger page = (scrollView.contentOffset.x - collectionViewWidth / 2) / collectionViewWidth + 1;
-    page %= self.imageArray.count;
-    self.pageControl.currentPage = page;
+    self.index = (scrollView.contentOffset.x - collectionViewWidth / 2) / collectionViewWidth + 1;
+    self.pageControl.currentPage = self.index % self.imageArray.count;
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -85,24 +87,21 @@
 #pragma mark - UIScrollViewDelegate
 //开始拖动时，停止定时器
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    [self.timer invalidate];
-    self.timer = nil;
+    [self removeTimer];
 }
 
-//停止拖动时判断页数
+//停止拖动时，启动定时器
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    [self addTimer];
+}
+
+//结束减速时，计算位置
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     [self chagePageControlCurrentWithScrollView:scrollView];
 }
-
 
 //自动滚动判断页数
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
     [self chagePageControlCurrentWithScrollView:scrollView];
 }
-
-//结束拖动时，启动定时器
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    [self timer];
-}
-
 @end
