@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		1DB1B0E31BF431A300E50A67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1B0E21BF431A300E50A67 /* main.m */; };
 		1DB1B0E61BF431A300E50A67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1B0E51BF431A300E50A67 /* AppDelegate.m */; };
-		1DB1B0E91BF431A300E50A67 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1B0E81BF431A300E50A67 /* ViewController.m */; };
 		1DB1B0EC1BF431A300E50A67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DB1B0EA1BF431A300E50A67 /* Main.storyboard */; };
 		1DB1B0EE1BF431A300E50A67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DB1B0ED1BF431A300E50A67 /* Assets.xcassets */; };
 		1DB1B0F11BF431A300E50A67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DB1B0EF1BF431A300E50A67 /* LaunchScreen.storyboard */; };
-		1DB1B0FA1BF4329400E50A67 /* JSImageViewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1B0F91BF4329400E50A67 /* JSImageViewCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		1DF587F91BFB1B490007D631 /* JSShuffingPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF587F81BFB1B490007D631 /* JSShuffingPictureView.xib */; settings = {ASSET_TAGS = (); }; };
+		1DF587FC1BFB1B610007D631 /* JSShuffingPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF587FB1BFB1B610007D631 /* JSShuffingPictureView.m */; settings = {ASSET_TAGS = (); }; };
+		1DF588001BFB1D070007D631 /* JSShuffingPictureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF587FE1BFB1D070007D631 /* JSShuffingPictureCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		1DF588011BFB1D070007D631 /* JSShuffingPictureCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF587FF1BFB1D070007D631 /* JSShuffingPictureCollectionViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		1DF588041BFB21080007D631 /* JSShuffingPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF588031BFB21080007D631 /* JSShuffingPictureViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,14 +24,18 @@
 		1DB1B0E21BF431A300E50A67 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1DB1B0E41BF431A300E50A67 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1DB1B0E51BF431A300E50A67 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1DB1B0E71BF431A300E50A67 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1DB1B0E81BF431A300E50A67 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1DB1B0EB1BF431A300E50A67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1DB1B0ED1BF431A300E50A67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1DB1B0F01BF431A300E50A67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1DB1B0F21BF431A300E50A67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1DB1B0F81BF4329400E50A67 /* JSImageViewCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSImageViewCollectionViewCell.h; sourceTree = "<group>"; };
-		1DB1B0F91BF4329400E50A67 /* JSImageViewCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSImageViewCollectionViewCell.m; sourceTree = "<group>"; };
+		1DF587F81BFB1B490007D631 /* JSShuffingPictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JSShuffingPictureView.xib; path = JSShuffingPictureView/JSShuffingPictureView.xib; sourceTree = "<group>"; };
+		1DF587FA1BFB1B610007D631 /* JSShuffingPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSShuffingPictureView.h; path = JSShuffingPictureView/JSShuffingPictureView.h; sourceTree = "<group>"; };
+		1DF587FB1BFB1B610007D631 /* JSShuffingPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSShuffingPictureView.m; path = JSShuffingPictureView/JSShuffingPictureView.m; sourceTree = "<group>"; };
+		1DF587FD1BFB1D070007D631 /* JSShuffingPictureCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSShuffingPictureCollectionViewCell.h; path = JSShuffingPictureView/JSShuffingPictureCollectionViewCell.h; sourceTree = "<group>"; };
+		1DF587FE1BFB1D070007D631 /* JSShuffingPictureCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSShuffingPictureCollectionViewCell.m; path = JSShuffingPictureView/JSShuffingPictureCollectionViewCell.m; sourceTree = "<group>"; };
+		1DF587FF1BFB1D070007D631 /* JSShuffingPictureCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JSShuffingPictureCollectionViewCell.xib; path = JSShuffingPictureView/JSShuffingPictureCollectionViewCell.xib; sourceTree = "<group>"; };
+		1DF588021BFB21080007D631 /* JSShuffingPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSShuffingPictureViewController.h; sourceTree = "<group>"; };
+		1DF588031BFB21080007D631 /* JSShuffingPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSShuffingPictureViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,17 +68,14 @@
 		1DB1B0E01BF431A300E50A67 /* JSShufflingPictureDemo */ = {
 			isa = PBXGroup;
 			children = (
+				1DF587F41BFB190E0007D631 /* JSShuffingPictureView */,
 				1DB1B0E41BF431A300E50A67 /* AppDelegate.h */,
 				1DB1B0E51BF431A300E50A67 /* AppDelegate.m */,
-				1DB1B0E71BF431A300E50A67 /* ViewController.h */,
-				1DB1B0E81BF431A300E50A67 /* ViewController.m */,
 				1DB1B0EA1BF431A300E50A67 /* Main.storyboard */,
 				1DB1B0ED1BF431A300E50A67 /* Assets.xcassets */,
 				1DB1B0EF1BF431A300E50A67 /* LaunchScreen.storyboard */,
 				1DB1B0F21BF431A300E50A67 /* Info.plist */,
 				1DB1B0E11BF431A300E50A67 /* Supporting Files */,
-				1DB1B0F81BF4329400E50A67 /* JSImageViewCollectionViewCell.h */,
-				1DB1B0F91BF4329400E50A67 /* JSImageViewCollectionViewCell.m */,
 			);
 			path = JSShufflingPictureDemo;
 			sourceTree = "<group>";
@@ -82,6 +86,21 @@
 				1DB1B0E21BF431A300E50A67 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1DF587F41BFB190E0007D631 /* JSShuffingPictureView */ = {
+			isa = PBXGroup;
+			children = (
+				1DF587FA1BFB1B610007D631 /* JSShuffingPictureView.h */,
+				1DF587FB1BFB1B610007D631 /* JSShuffingPictureView.m */,
+				1DF587F81BFB1B490007D631 /* JSShuffingPictureView.xib */,
+				1DF587FD1BFB1D070007D631 /* JSShuffingPictureCollectionViewCell.h */,
+				1DF587FE1BFB1D070007D631 /* JSShuffingPictureCollectionViewCell.m */,
+				1DF587FF1BFB1D070007D631 /* JSShuffingPictureCollectionViewCell.xib */,
+				1DF588021BFB21080007D631 /* JSShuffingPictureViewController.h */,
+				1DF588031BFB21080007D631 /* JSShuffingPictureViewController.m */,
+			);
+			name = JSShuffingPictureView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +161,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DF588011BFB1D070007D631 /* JSShuffingPictureCollectionViewCell.xib in Resources */,
+				1DF587F91BFB1B490007D631 /* JSShuffingPictureView.xib in Resources */,
 				1DB1B0F11BF431A300E50A67 /* LaunchScreen.storyboard in Resources */,
 				1DB1B0EE1BF431A300E50A67 /* Assets.xcassets in Resources */,
 				1DB1B0EC1BF431A300E50A67 /* Main.storyboard in Resources */,
@@ -155,9 +176,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DB1B0FA1BF4329400E50A67 /* JSImageViewCollectionViewCell.m in Sources */,
-				1DB1B0E91BF431A300E50A67 /* ViewController.m in Sources */,
+				1DF588001BFB1D070007D631 /* JSShuffingPictureCollectionViewCell.m in Sources */,
 				1DB1B0E61BF431A300E50A67 /* AppDelegate.m in Sources */,
+				1DF588041BFB21080007D631 /* JSShuffingPictureViewController.m in Sources */,
+				1DF587FC1BFB1B610007D631 /* JSShuffingPictureView.m in Sources */,
 				1DB1B0E31BF431A300E50A67 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
