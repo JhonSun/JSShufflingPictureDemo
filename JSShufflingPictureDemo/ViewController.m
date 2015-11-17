@@ -66,7 +66,6 @@
 - (void)chagePageControlCurrentWithScrollView:(UIScrollView *)scrollView {
     CGFloat collectionViewWidth = self.collectionView.bounds.size.width;
     self.index = (scrollView.contentOffset.x - collectionViewWidth / 2) / collectionViewWidth + 1;
-//    NSUInteger page = self.index % self.imageArray.count;
     
     if (self.index == self.imageArray.count - 1) {
         [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
@@ -87,7 +86,6 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     JSImageViewCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:imageViewCollectionViewCellIdentifier forIndexPath:indexPath];
-//    NSUInteger page = indexPath.item % self.imageArray.count;
     cell.image = [self.imageArray objectAtIndex:indexPath.item];
     return cell;
 }
@@ -99,7 +97,7 @@
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.item == 0 && _isFirst) {
+    if (_isFirst) {
         [collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
         _isFirst = NO;
     }
