@@ -26,7 +26,9 @@
 
 - (void)layoutSubviews {
     [self.collectionView reloadData];
-    [self.collectionView setContentOffset:CGPointMake(self.bounds.size.width, 0) animated:NO];
+    if (self.imageArray.count > 1) {
+        [self.collectionView setContentOffset:CGPointMake(self.bounds.size.width, 0) animated:NO];
+    }
 }
 
 #pragma mark - set
@@ -69,14 +71,16 @@
 }
 
 - (void)jumpNext {
-    NSUInteger page = self.pageControl.currentPage + 2;
-    if (page >= [self.collectionView numberOfItemsInSection:0]) {
-        page = 1;
+    if (self.imageArray.count > 1) {
+        NSUInteger page = self.pageControl.currentPage + 2;
+        if (page >= [self.collectionView numberOfItemsInSection:0]) {
+            page = 1;
+        }
+        [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:page inSection:0] atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
     }
-    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:page inSection:0] atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
 }
 
-- (void)chagePageControlCurrentWithScrollView:(UIScrollView *)scrollView {
+- (void)changePageControlCurrentPageWithScrollView:(UIScrollView *)scrollView {
     CGFloat collectionViewWidth = self.collectionView.bounds.size.width;
     NSUInteger page = (scrollView.contentOffset.x - collectionViewWidth / 2) / collectionViewWidth + 1;
     
@@ -121,12 +125,12 @@
 
 //结束减速时，计算位置
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    [self chagePageControlCurrentWithScrollView:scrollView];
+    [self changePageControlCurrentPageWithScrollView:scrollView];
 }
 
 //自动滚动判断页数
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
-    [self chagePageControlCurrentWithScrollView:scrollView];
+    [self changePageControlCurrentPageWithScrollView:scrollView];
 }
 
 @end
