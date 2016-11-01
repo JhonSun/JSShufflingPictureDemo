@@ -15,4 +15,6 @@
 @property (nonatomic, strong) UIColor *pageControlCurrentColor;
 @property (nonatomic, strong) UIColor *pageControlThumColor;
 
+@property (nonatomic, copy) void (^selectItemEvent)(NSInteger selectIndex);
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "JSShuffingPictureCollectionViewCell.h"
+#import "UIImageView+WebCache.h"
 
 @interface JSShuffingPictureCollectionViewCell ()
 
@@ -24,6 +25,22 @@
 - (void)setImage:(UIImage *)image {
     _image = image;
     self.imageView.image = image;
+}
+
+- (void)setImageUrlString:(NSString *)imageUrlString {
+    _imageUrlString = imageUrlString;
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:_imageUrlString] placeholderImage:nil];
+}
+
+- (void)setImageObject:(id)imageObject {
+    _imageObject = imageObject;
+    if ([_imageObject isKindOfClass:[UIImage class]]) {
+        UIImage *image = (UIImage *)_imageObject;
+        self.imageView.image = image;
+    } else if ([_imageObject isKindOfClass:[NSString class]]) {
+        NSString *imageUrlString = (NSString *)_imageObject;
+        [self.imageView sd_setImageWithURL:[NSURL URLWithString:imageUrlString] placeholderImage:nil];
+    }
 }
 
 @end

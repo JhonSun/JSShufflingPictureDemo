@@ -21,6 +21,7 @@
 @implementation JSShuffingPictureView
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     [self.collectionView registerNib:[UINib nibWithNibName:@"JSShuffingPictureCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:shuffingPictureCollectionViewCellIdentifier];
 }
 
@@ -110,6 +111,17 @@
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return self.bounds.size;
+}
+
+#pragma mark - UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger selectIndex;
+    if (self.imageArray.count > 1) {
+        selectIndex = indexPath.item - 1;
+    } else {
+        selectIndex = indexPath.item;
+    }
+    if (self.selectItemEvent) self.selectItemEvent(selectIndex);
 }
 
 #pragma mark - UIScrollViewDelegate

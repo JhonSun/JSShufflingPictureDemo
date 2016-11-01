@@ -12,5 +12,7 @@
 @interface JSShuffingPictureCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, strong) UIImage *image;
+@property (nonatomic, copy) NSString *imageUrlString;
+@property (nonatomic, assign) id imageObject;
 
 @end
