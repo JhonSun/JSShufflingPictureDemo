@@ -28,7 +28,9 @@
 - (void)layoutSubviews {
     [self.collectionView reloadData];
     if (self.imageArray.count > 1) {
-        [self.collectionView setContentOffset:CGPointMake(self.bounds.size.width, 0) animated:NO];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+        });
     }
 }
 
@@ -41,6 +43,10 @@
         [tempImageArray insertObject:[imageArray lastObject] atIndex:0];
         [tempImageArray addObject:[imageArray firstObject]];
         _imageArray = tempImageArray;
+        [self.collectionView reloadData];
+        [self layoutSubviews];
+    } else {
+        [self.collectionView reloadData];
     }
 }
 
