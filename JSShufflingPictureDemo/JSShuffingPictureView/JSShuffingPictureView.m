@@ -38,6 +38,7 @@
 - (void)setImageArray:(NSArray *)imageArray {
     _imageArray = imageArray;
     self.pageControl.numberOfPages = _imageArray.count;
+    self.pageControl.currentPage = 0;
     if (imageArray.count > 1) {
         NSMutableArray *tempImageArray = [NSMutableArray arrayWithArray:imageArray];
         [tempImageArray insertObject:[imageArray lastObject] atIndex:0];
@@ -52,6 +53,7 @@
 
 - (void)setAutoScrollTime:(NSInteger)autoScrollTime {
     _autoScrollTime = autoScrollTime;
+    if (self.timer) [self removeTimer];
     [self addTimer];
 }
 
