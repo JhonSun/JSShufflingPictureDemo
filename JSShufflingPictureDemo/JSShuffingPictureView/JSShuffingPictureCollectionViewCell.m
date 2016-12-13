@@ -18,7 +18,7 @@
 @implementation JSShuffingPictureCollectionViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    [super awakeFromNib];
 }
 
 #pragma mark - set
@@ -29,7 +29,7 @@
 
 - (void)setImageUrlString:(NSString *)imageUrlString {
     _imageUrlString = imageUrlString;
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:_imageUrlString] placeholderImage:nil];
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:_imageUrlString] placeholderImage:self.defaultImage];
 }
 
 - (void)setImageObject:(id)imageObject {
@@ -39,7 +39,7 @@
         self.imageView.image = image;
     } else if ([_imageObject isKindOfClass:[NSString class]]) {
         NSString *imageUrlString = (NSString *)_imageObject;
-        [self.imageView sd_setImageWithURL:[NSURL URLWithString:imageUrlString] placeholderImage:nil];
+        [self.imageView sd_setImageWithURL:[NSURL URLWithString:imageUrlString] placeholderImage:self.defaultImage];
     }
 }
 

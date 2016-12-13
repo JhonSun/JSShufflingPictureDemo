@@ -11,9 +11,10 @@
 @interface JSShuffingPictureView : UIView
 
 @property (nonatomic, strong) NSArray *imageArray;
-@property (nonatomic, assign) NSInteger autoScrollTime;
+@property (nonatomic, assign) NSTimeInterval autoScrollTime;
 @property (nonatomic, strong) UIColor *pageControlCurrentColor;
 @property (nonatomic, strong) UIColor *pageControlThumColor;
+@property (nonatomic, strong) UIImage *defaultImage;
 
 @property (nonatomic, copy) void (^selectItemEvent)(NSInteger selectIndex);
 

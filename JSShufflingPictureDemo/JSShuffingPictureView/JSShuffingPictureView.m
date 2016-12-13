@@ -26,7 +26,7 @@
 }
 
 - (void)layoutSubviews {
-    [self.collectionView reloadData];
+    [super layoutSubviews];
     if (self.imageArray.count > 1) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
@@ -51,7 +51,12 @@
     }
 }
 
-- (void)setAutoScrollTime:(NSInteger)autoScrollTime {
+- (void)setDefaultImage:(UIImage *)defaultImage {
+    _defaultImage = defaultImage;
+    [self.collectionView reloadData];
+}
+
+- (void)setAutoScrollTime:(NSTimeInterval)autoScrollTime {
     _autoScrollTime = autoScrollTime;
     if (self.timer) [self removeTimer];
     [self addTimer];
@@ -112,13 +117,14 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     JSShuffingPictureCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:shuffingPictureCollectionViewCellIdentifier forIndexPath:indexPath];
-    cell.image = [self.imageArray objectAtIndex:indexPath.item];
+    cell.imageObject = [self.imageArray objectAtIndex:indexPath.item];
+    cell.defaultImage = self.defaultImage;
     return cell;
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return self.bounds.size;
+    return collectionView.bounds.size;
 }
 
 #pragma mark - UICollectionViewDelegate
