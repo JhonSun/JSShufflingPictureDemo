@@ -53,6 +53,7 @@
 
 - (void)setDefaultImage:(UIImage *)defaultImage {
     _defaultImage = defaultImage;
+    if (self.imageArray.count == 0) self.imageArray = @[_defaultImage];
     [self.collectionView reloadData];
 }
 
