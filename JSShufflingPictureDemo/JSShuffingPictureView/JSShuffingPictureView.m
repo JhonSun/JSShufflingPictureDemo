@@ -27,7 +27,7 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    if (self.imageArray.count > 1) {
+    if (self.isLoop && self.imageArray.count > 1) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
         });
@@ -39,7 +39,7 @@
     _imageArray = imageArray;
     self.pageControl.numberOfPages = _imageArray.count;
     self.pageControl.currentPage = 0;
-    if (imageArray.count > 1) {
+    if (self.isLoop && imageArray.count > 1) {
         NSMutableArray *tempImageArray = [NSMutableArray arrayWithArray:imageArray];
         [tempImageArray insertObject:[imageArray lastObject] atIndex:0];
         [tempImageArray addObject:[imageArray firstObject]];
@@ -98,16 +98,18 @@
 - (void)changePageControlCurrentPageWithScrollView:(UIScrollView *)scrollView {
     CGFloat collectionViewWidth = self.collectionView.bounds.size.width;
     NSUInteger page = (scrollView.contentOffset.x - collectionViewWidth / 2) / collectionViewWidth + 1;
-    
-    if (page == self.imageArray.count - 1) {
-        [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
-        page = 0;
-    } else if (page == 0) {
-        [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.imageArray.count - 2 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
-        page = self.imageArray.count - 2;
-    } else {
-        page -= 1;
+    if (self.isLoop) {
+        if (page == self.imageArray.count - 1) {
+            [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+            page = 0;
+        } else if (page == 0) {
+            [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.imageArray.count - 2 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+            page = self.imageArray.count - 2;
+        } else {
+            page -= 1;
+        }
     }
+    
     self.pageControl.currentPage = page;
 }
 
@@ -131,7 +133,7 @@
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger selectIndex;
-    if (self.imageArray.count > 1) {
+    if (self.isLoop && self.imageArray.count > 1) {
         selectIndex = indexPath.item - 1;
     } else {
         selectIndex = indexPath.item;
