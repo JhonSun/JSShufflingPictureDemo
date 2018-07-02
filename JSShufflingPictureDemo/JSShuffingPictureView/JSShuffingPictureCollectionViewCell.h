@@ -12,6 +12,7 @@ static NSString *shuffingPictureCollectionViewCellIdentifier = @"shuffingPicture
 
 @interface JSShuffingPictureCollectionViewCell : UICollectionViewCell
 
+@property (nonatomic, assign) BOOL isZoom;
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, copy) NSString *imageUrlString;
 @property (nonatomic, assign) id imageObject;

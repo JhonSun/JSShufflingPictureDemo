@@ -17,6 +17,7 @@
 		1DF588001BFB1D070007D631 /* JSShuffingPictureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF587FE1BFB1D070007D631 /* JSShuffingPictureCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		1DF588011BFB1D070007D631 /* JSShuffingPictureCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF587FF1BFB1D070007D631 /* JSShuffingPictureCollectionViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		1DF588041BFB21080007D631 /* JSShuffingPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF588031BFB21080007D631 /* JSShuffingPictureViewController.m */; settings = {ASSET_TAGS = (); }; };
+		BBCE1B4B1691E9B252938B5F /* libPods-JSShufflingPictureDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0938AAC9932A34A1AC6A52F /* libPods-JSShufflingPictureDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,9 @@
 		1DF587FF1BFB1D070007D631 /* JSShuffingPictureCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JSShuffingPictureCollectionViewCell.xib; path = JSShuffingPictureView/JSShuffingPictureCollectionViewCell.xib; sourceTree = "<group>"; };
 		1DF588021BFB21080007D631 /* JSShuffingPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSShuffingPictureViewController.h; sourceTree = "<group>"; };
 		1DF588031BFB21080007D631 /* JSShuffingPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSShuffingPictureViewController.m; sourceTree = "<group>"; };
+		A958F17CCD4094F6D2BC3012 /* Pods-JSShufflingPictureDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSShufflingPictureDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-JSShufflingPictureDemo/Pods-JSShufflingPictureDemo.release.xcconfig"; sourceTree = "<group>"; };
+		B0938AAC9932A34A1AC6A52F /* libPods-JSShufflingPictureDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JSShufflingPictureDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD22AE3FFFC11282C5223E8A /* Pods-JSShufflingPictureDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSShufflingPictureDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JSShufflingPictureDemo/Pods-JSShufflingPictureDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBCE1B4B1691E9B252938B5F /* libPods-JSShufflingPictureDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +59,8 @@
 			children = (
 				1DB1B0E01BF431A300E50A67 /* JSShufflingPictureDemo */,
 				1DB1B0DF1BF431A300E50A67 /* Products */,
+				37BDA599BA1CD339E93B2E50 /* Pods */,
+				F1AA142843F5538983906BC0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +110,23 @@
 			name = JSShuffingPictureView;
 			sourceTree = "<group>";
 		};
+		37BDA599BA1CD339E93B2E50 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BD22AE3FFFC11282C5223E8A /* Pods-JSShufflingPictureDemo.debug.xcconfig */,
+				A958F17CCD4094F6D2BC3012 /* Pods-JSShufflingPictureDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F1AA142843F5538983906BC0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B0938AAC9932A34A1AC6A52F /* libPods-JSShufflingPictureDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -110,6 +134,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DB1B0F51BF431A300E50A67 /* Build configuration list for PBXNativeTarget "JSShufflingPictureDemo" */;
 			buildPhases = (
+				FEF5E5DE88E9C3A615AD4D1E /* [CP] Check Pods Manifest.lock */,
 				1DB1B0DA1BF431A300E50A67 /* Sources */,
 				1DB1B0DB1BF431A300E50A67 /* Frameworks */,
 				1DB1B0DC1BF431A300E50A67 /* Resources */,
@@ -170,6 +195,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FEF5E5DE88E9C3A615AD4D1E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JSShufflingPictureDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1DB1B0DA1BF431A300E50A67 /* Sources */ = {
@@ -288,6 +334,7 @@
 		};
 		1DB1B0F61BF431A300E50A67 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD22AE3FFFC11282C5223E8A /* Pods-JSShufflingPictureDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = JSShufflingPictureDemo/Info.plist;
@@ -299,6 +346,7 @@
 		};
 		1DB1B0F71BF431A300E50A67 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A958F17CCD4094F6D2BC3012 /* Pods-JSShufflingPictureDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = JSShufflingPictureDemo/Info.plist;

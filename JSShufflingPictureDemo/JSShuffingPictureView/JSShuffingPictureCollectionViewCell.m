@@ -9,8 +9,9 @@
 #import "JSShuffingPictureCollectionViewCell.h"
 #import "UIImageView+WebCache.h"
 
-@interface JSShuffingPictureCollectionViewCell ()
+@interface JSShuffingPictureCollectionViewCell ()<UIScrollViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
@@ -19,6 +20,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.scrollView.minimumZoomScale = 1.0;
+    self.scrollView.maximumZoomScale = 3.0;
 }
 
 #pragma mark - set
@@ -41,6 +44,20 @@
         NSString *imageUrlString = (NSString *)_imageObject;
         [self.imageView sd_setImageWithURL:[NSURL URLWithString:imageUrlString] placeholderImage:self.defaultImage];
     }
+}
+
+- (void)setIsZoom:(BOOL)isZoom {
+    _isZoom = isZoom;
+    if (_isZoom) {
+        self.scrollView.delegate = self;
+    } else {
+        self.scrollView.delegate = nil;
+    }
+}
+
+#pragma mark - UIScrollViewDelegate
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    return self.imageView;
 }
 
 @end

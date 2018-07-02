@@ -35,10 +35,12 @@
 - (JSShuffingPictureView *)shuffingPictureView {
     if (!_shuffingPictureView) {
         _shuffingPictureView = [[[NSBundle mainBundle] loadNibNamed:@"JSShuffingPictureView" owner:self options:nil] firstObject];
-        _shuffingPictureView.imageArray = [NSArray arrayWithObjects:[UIImage imageNamed:@"banner1"], [UIImage imageNamed:@"banner2"], [UIImage imageNamed:@"banner3"], nil];
-        _shuffingPictureView.autoScrollTime = 3;
+        _shuffingPictureView.isZoom = YES;
+        _shuffingPictureView.isLoop = NO;
+//        _shuffingPictureView.autoScrollTime = 3;
         _shuffingPictureView.pageControlCurrentColor = [UIColor redColor];
         _shuffingPictureView.pageControlThumColor = [UIColor grayColor];
+        _shuffingPictureView.imageArray = [NSArray arrayWithObjects:[UIImage imageNamed:@"banner1"], [UIImage imageNamed:@"banner2"], [UIImage imageNamed:@"banner3"], nil];
     }
     return _shuffingPictureView;
 }

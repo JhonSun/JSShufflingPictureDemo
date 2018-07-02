@@ -22,6 +22,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.isLoop = YES;
     [self.collectionView registerNib:[UINib nibWithNibName:@"JSShuffingPictureCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:shuffingPictureCollectionViewCellIdentifier];
 }
 
@@ -73,6 +74,11 @@
     self.pageControl.pageIndicatorTintColor = _pageControlThumColor;
 }
 
+- (void)setIsZoom:(BOOL)isZoom {
+    _isZoom = isZoom;
+    [self.collectionView reloadData];
+}
+
 #pragma mark - private
 - (void)addTimer {
     if (self.autoScrollTime != 0) {
@@ -122,6 +128,7 @@
     JSShuffingPictureCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:shuffingPictureCollectionViewCellIdentifier forIndexPath:indexPath];
     cell.imageObject = [self.imageArray objectAtIndex:indexPath.item];
     cell.defaultImage = self.defaultImage;
+    cell.isZoom = self.isZoom;
     return cell;
 }
 

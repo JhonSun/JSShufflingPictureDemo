@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,21 +18,35 @@
                 <rect key="frame" x="0.0" y="0.0" width="208" height="101"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GVK-7W-UpP">
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tlh-Cp-4g8">
                         <rect key="frame" x="0.0" y="0.0" width="208" height="101"/>
-                    </imageView>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GVK-7W-UpP">
+                                <rect key="frame" x="0.0" y="0.0" width="208" height="101"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="GVK-7W-UpP" secondAttribute="trailing" id="JPQ-ei-4Ss"/>
+                            <constraint firstAttribute="bottom" secondItem="GVK-7W-UpP" secondAttribute="bottom" id="N3O-uS-EoU"/>
+                            <constraint firstItem="GVK-7W-UpP" firstAttribute="leading" secondItem="tlh-Cp-4g8" secondAttribute="leading" id="QR3-9b-Vet"/>
+                            <constraint firstItem="GVK-7W-UpP" firstAttribute="top" secondItem="tlh-Cp-4g8" secondAttribute="top" id="U0J-zs-1mj"/>
+                            <constraint firstItem="GVK-7W-UpP" firstAttribute="width" secondItem="tlh-Cp-4g8" secondAttribute="width" id="fGO-6P-pen"/>
+                        </constraints>
+                    </scrollView>
                 </subviews>
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="GVK-7W-UpP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Mah-AA-BpU"/>
-                <constraint firstAttribute="bottom" secondItem="GVK-7W-UpP" secondAttribute="bottom" id="a2O-sF-0lJ"/>
-                <constraint firstAttribute="trailing" secondItem="GVK-7W-UpP" secondAttribute="trailing" id="fym-zf-IEt"/>
-                <constraint firstItem="GVK-7W-UpP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="uCj-OF-gCl"/>
+                <constraint firstItem="GVK-7W-UpP" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="Sjc-7n-qnX"/>
+                <constraint firstItem="tlh-Cp-4g8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="TEo-K8-6KX"/>
+                <constraint firstItem="tlh-Cp-4g8" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="pnI-Iw-s6L"/>
+                <constraint firstAttribute="bottom" secondItem="tlh-Cp-4g8" secondAttribute="bottom" id="zJw-P9-Gyz"/>
+                <constraint firstAttribute="trailing" secondItem="tlh-Cp-4g8" secondAttribute="trailing" id="zPk-Ey-vAU"/>
             </constraints>
             <size key="customSize" width="208" height="101"/>
             <connections>
                 <outlet property="imageView" destination="GVK-7W-UpP" id="zuR-IM-Ur9"/>
+                <outlet property="scrollView" destination="tlh-Cp-4g8" id="g2q-OD-Z0y"/>
             </connections>
             <point key="canvasLocation" x="346" y="204.5"/>
         </collectionViewCell>
